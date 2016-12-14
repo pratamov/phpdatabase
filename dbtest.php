@@ -10,7 +10,17 @@ if ($connection->connect_errno) {
     printf("Connect failed: %s\n", $mysqli->connect_error);
     exit();
 } else {
-    printf("Connected to the database");
+	
+	$data = array(
+		'dbhost' => $dbhost,
+		'dbport' => $dbport,
+		'dbuser' => $dbuser,
+		'dbpwd' => $dbpwd,
+		'dbname' => $dbname
+	);
+	
+	echo json_encode($data);
+    //printf("Connected to the database");
 }
 $connection->close();
 ?>
